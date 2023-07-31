@@ -1,0 +1,121 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.categories {
+    flex-basis: 200px;
+    background-color: #f2f2f2;
+    padding: 10px;
+}
+
+.categories ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.categories li {
+    margin-bottom: 10px;
+}
+
+.categories a {
+    text-decoration: none;
+    color: #333;
+}
+
+.categories a:hover {
+    font-weight: bold;
+}
+
+.products {
+    flex-basis: 300px;
+    padding: 10px;
+}
+
+.product-details {
+    flex-basis: 400px;
+    padding: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+.form {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.order-info {
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    padding: 10px;
+}
+
+.order-info h3 {
+    margin-top: 0;
+}
+
+.order-info p {
+    margin-bottom: 5px;
+}
+
+/* Add this CSS for the order list */
+.order-list {
+    flex-basis: 400px;
+    padding: 10px;
+}
+
+.order-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.order-item .order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order-item .order-details {
+    margin-top: 10px;
+}
+
+/* Add this to make the order details visible when expanded */
+.order-item .order-details:not(.hidden) {
+    display: block;
+}
