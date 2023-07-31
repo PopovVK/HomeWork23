@@ -16,22 +16,41 @@ const productCategories = {
     ]
 };
 
+document.addEventListener('DOMContentLoaded', () => {
+    const categories = document.querySelectorAll('.categories a');
+    categories.forEach((category) => {
+        category.addEventListener('click', (event) => {
+            event.preventDefault();
+            showProducts(category.textContent);
+        });
+    });
+
+    showProducts('');
+
+    const orderButton = document.querySelector('button');
+    orderButton.addEventListener('click', () => {
+        showOrders();
+    });
+});
+
 function showProducts(category) {
     const productList = document.getElementById('productList');
     productList.innerHTML = '';
 
     const products = productCategories[category];
-    products.forEach((product) => {
-        const listItem = document.createElement('li');
-        const link = document.createElement('a');
-        link.href = '#';
-        link.textContent = product.name;
-        link.onclick = () => showProductDetails(product);
-        listItem.appendChild(link);
-        productList.appendChild(listItem);
-    });
+    if (products) {
+        products.forEach((product) => {
+            const listItem = document.createElement('li');
+            const link = document.createElement('a');
+            link.href = '#';
+            link.textContent = product.name;
+            link.onclick = () => showProductDetails(product);
+            listItem.appendChild(link);
+            productList.appendChild(listItem);
+        });
+    }
 
-    const categoriesElement = document.getElementById('categories');
+    const categoriesElement = document.querySelector('.categories');
     categoriesElement.classList.remove('hidden');
 }
 
@@ -83,7 +102,7 @@ function submitOrder(event) {
     const order = {
         id: Date.now(),
         date: new Date().toLocaleString(),
-        price: calculateTotalPrice(quantity), 
+        price: calculateTotalPrice(quantity),
         fullName,
         city,
         delivery,
@@ -110,7 +129,7 @@ function submitOrder(event) {
 
 function showOrders() {
     const categoriesElement = document.getElementById('categories');
-    const productList = document.getElementById('productList');
+    const productList = document.querySelector('.products');
     const orderList = document.getElementById('orderList');
 
     categoriesElement.classList.add('hidden');
@@ -119,7 +138,7 @@ function showOrders() {
 
     const orders = getOrdersFromLocalStorage();
     if (orders.length === 0) {
-        orderList.innerHTML = '<p>Заказов не найдено.</p>';
+        orderList.innerHTML = '<p>No orders found.</p>';
     } else {
         orders.forEach((order) => {
             const orderItem = document.createElement('div');
@@ -187,9 +206,5 @@ function saveOrderToLocalStorage(order) {
 }
 
 function calculateTotalPrice(quantity) {
-
     return Math.floor(Math.random() * 1000) + 500;
 }
-
-
-showProducts('');

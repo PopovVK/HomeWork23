@@ -93,7 +93,6 @@ input[type="submit"]:hover {
     margin-bottom: 5px;
 }
 
-/* Add this CSS for the order list */
 .order-list {
     flex-basis: 400px;
     padding: 10px;
@@ -115,7 +114,6 @@ input[type="submit"]:hover {
     margin-top: 10px;
 }
 
-/* Add this to make the order details visible when expanded */
 .order-item .order-details:not(.hidden) {
     display: block;
 }

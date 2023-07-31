@@ -11,10 +11,11 @@
 
 <body>
     <h1>Каталог товарів</h1>
-    
     <div class="container">
-        <div class="container">
-            <button onclick="showOrders()">Мої замовлення</button>
+        <button onclick="showOrders()">Мої замовлення</button>
+    </div>
+
+    <div class="container">
         <div class="categories" id="categories">
             <h2>Категорії</h2>
             <ul>
@@ -23,12 +24,12 @@
                 <li><a href="#" onclick="showProducts('Ремені')">Ремені</a></li>
             </ul>
         </div>
-    
+
         <div class="products">
             <h2>Товари</h2>
             <ul id="productList"></ul>
         </div>
-    
+
         <div class="product-details">
             <h2>Інформація про товар</h2>
             <div id="productInfo" class="hidden">
@@ -41,35 +42,35 @@
                 <form onsubmit="submitOrder(event)">
                     <label for="fullName">ПІБ покупця:</label>
                     <input type="text" id="fullName" required>
-    
+
                     <label for="city">Місто:</label>
                     <select id="city" required>
                         <option value="Київ">Київ</option>
                         <option value="Львів">Львів</option>
                         <option value="Одеса">Одеса</option>
                     </select>
-    
+
                     <label for="delivery">Склад Нової пошти:</label>
                     <input type="text" id="delivery" required>
-    
+
                     <label for="payment">Оплата:</label>
                     <select id="payment" required>
                         <option value="Післяплата">Післяплата</option>
                         <option value="Оплата карткою">Оплата карткою</option>
                     </select>
-    
+
                     <label for="quantity">Кількість:</label>
                     <input type="number" id="quantity" min="1" required>
-    
+
                     <label for="comment">Коментар:</label>
                     <textarea id="comment"></textarea>
-    
+
                     <input type="submit" value="Підтвердити">
                 </form>
             </div>
         </div>
     </div>
-    
+
     <div class="order-info hidden" id="orderInfo"></div>
     <div class="order-list" id="orderList"></div>
     <script src="./index.js" defer> </script>
